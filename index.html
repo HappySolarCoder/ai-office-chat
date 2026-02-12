@@ -443,17 +443,13 @@
       }
     }
 
-    // Auth state
+    // Auth state - Skip login for now, go straight to chat
     auth.onAuthStateChanged(user => {
-      if (user) {
-        currentUser = 'evan';
-        document.getElementById('loginScreen').style.display = 'none';
-        document.getElementById('chatContainer').style.display = 'flex';
-        initChat();
-      } else {
-        document.getElementById('loginScreen').style.display = 'flex';
-        document.getElementById('chatContainer').style.display = 'none';
-      }
+      // Always show chat (no login required for testing)
+      currentUser = 'evan';
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('chatContainer').style.display = 'flex';
+      initChat();
     });
 
     function initChat() {
